@@ -23,6 +23,11 @@ with open('dag14input.txt', encoding='ascii' ) as fp:
         if len(robots) == len(rs):
             total = nt
             break
-    
+            
+    dd = defaultdict(list)
+    for x, y in robots:
+        dd[x].append(y)
+    for k in sorted(dd):
+        print(''.join(['+' if i in dd[k] else ' ' for i in range(ny)]))
     print(total)
                 
